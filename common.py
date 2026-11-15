@@ -75,6 +75,25 @@ def load_q(model, q):
     for name, (qi, scale) in q.items():
         mods[name].weight.data = qi.float() * scale
 
+def flip_bits_global(q, names, bit_ids):
+    """Flip many bits at once. bit_ids index the concatenation of all layers' bits
+    (weight i of the concatenation owns bits 8*i .. 8*i+7, bit 0 = LSB)."""
+    sizes = torch.tensor([q[n][0].numel() for n in names])
+    starts = torch.cumsum(sizes, 0) - sizes
+    w_ids, bits = bit_ids // 8, bit_ids % 8
+    layer = torch.searchsorted(torch.cumsum(sizes, 0), w_ids, right=True)
+    for li, name in enumerate(names):
+        sel = layer == li
+        if not sel.any(): continue
+        qi = q[name][0]
+        u = qi.view(-1).cpu().view(torch.uint8).clone()
+        idx = w_ids[sel] - starts[li]
+        masks = (1 << bits[sel]).to(torch.uint8)
+        # a weight may receive several flips (different bits): apply them one at a time
+        for i, m in zip(idx.tolist(), masks.tolist()):
+            u[i] ^= m
+        q[name] = (u.view(torch.int8).view_as(qi).to(qi.device), q[name][1])
+
 def flip_bit(qi_flat, idx, bit):
     """Flip one bit (0 = LSB, 7 = sign/MSB) of a two's-complement int8 value, in place."""
     v = int(qi_flat[idx].item()) & 0xFF
