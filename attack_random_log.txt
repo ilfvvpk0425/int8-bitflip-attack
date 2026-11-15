@@ -1,0 +1,50 @@
+float32 accuracy (10k): 90.70%   int8 accuracy (eval 5k): 90.98%   weight bits: 2,167,168
+  random      1 flips  trial 1/5: 90.98%
+  random      1 flips  trial 2/5: 90.98%
+  random      1 flips  trial 3/5: 90.98%
+  random      1 flips  trial 4/5: 91.00%
+  random      1 flips  trial 5/5: 90.98%
+random       1 flips -> mean 90.98%  (min 90.98, max 91.00)  [55s]
+  random     10 flips  trial 1/5: 90.88%
+  random     10 flips  trial 2/5: 90.82%
+  random     10 flips  trial 3/5: 90.96%
+  random     10 flips  trial 4/5: 91.08%
+  random     10 flips  trial 5/5: 90.96%
+random      10 flips -> mean 90.94%  (min 90.82, max 91.08)  [94s]
+  random    100 flips  trial 1/5: 90.62%
+  random    100 flips  trial 2/5: 90.80%
+  random    100 flips  trial 3/5: 90.86%
+  random    100 flips  trial 4/5: 89.14%
+  random    100 flips  trial 5/5: 90.96%
+random     100 flips -> mean 90.48%  (min 89.14, max 90.96)  [132s]
+  random   1000 flips  trial 1/5: 89.14%
+  random   1000 flips  trial 2/5: 89.96%
+  random   1000 flips  trial 3/5: 87.84%
+  random   1000 flips  trial 4/5: 89.60%
+  random   1000 flips  trial 5/5: 88.92%
+random    1000 flips -> mean 89.09%  (min 87.84, max 89.96)  [171s]
+  random   3000 flips  trial 1/5: 85.26%
+  random   3000 flips  trial 2/5: 86.62%
+  random   3000 flips  trial 3/5: 85.92%
+  random   3000 flips  trial 4/5: 84.88%
+  random   3000 flips  trial 5/5: 87.74%
+random    3000 flips -> mean 86.08%  (min 84.88, max 87.74)  [210s]
+  random  10000 flips  trial 1/5: 67.54%
+  random  10000 flips  trial 2/5: 64.94%
+  random  10000 flips  trial 3/5: 73.62%
+  random  10000 flips  trial 4/5: 67.72%
+  random  10000 flips  trial 5/5: 74.70%
+random   10000 flips -> mean 69.70%  (min 64.94, max 74.70)  [250s]
+  random  30000 flips  trial 1/5: 23.76%
+  random  30000 flips  trial 2/5: 23.54%
+  random  30000 flips  trial 3/5: 24.92%
+  random  30000 flips  trial 4/5: 19.48%
+  random  30000 flips  trial 5/5: 26.90%
+random   30000 flips -> mean 23.72%  (min 19.48, max 26.90)  [289s]
+  random 100000 flips  trial 1/5: 9.56%
+  random 100000 flips  trial 2/5: 9.82%
+  random 100000 flips  trial 3/5: 9.74%
+  random 100000 flips  trial 4/5: 9.88%
+  random 100000 flips  trial 5/5: 9.96%
+random  100000 flips -> mean 9.79%  (min 9.56, max 9.96)  [332s]
+saved random results to results.json  [332s]
