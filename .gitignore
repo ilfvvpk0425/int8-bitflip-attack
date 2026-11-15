@@ -1,0 +1,6 @@
+venv/
+data/
+*.pt
+__pycache__/
+bitflip_sim.py
+bitflip_result.png
