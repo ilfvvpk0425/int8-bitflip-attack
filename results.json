@@ -101,5 +101,493 @@
         9.96
       ]
     }
-  }
+  },
+  "targeted": [
+    [
+      0,
+      90.98
+    ],
+    [
+      1,
+      89.6
+    ],
+    [
+      2,
+      89.18
+    ],
+    [
+      3,
+      85.78
+    ],
+    [
+      4,
+      77.32
+    ],
+    [
+      5,
+      65.5
+    ],
+    [
+      6,
+      53.46
+    ],
+    [
+      7,
+      43.38
+    ],
+    [
+      8,
+      33.34
+    ],
+    [
+      9,
+      26.12
+    ],
+    [
+      10,
+      21.44
+    ],
+    [
+      11,
+      18.12
+    ],
+    [
+      12,
+      14.42
+    ],
+    [
+      13,
+      12.66
+    ],
+    [
+      14,
+      11.28
+    ],
+    [
+      15,
+      10.42
+    ],
+    [
+      16,
+      10.14
+    ],
+    [
+      17,
+      10.12
+    ],
+    [
+      18,
+      9.92
+    ],
+    [
+      19,
+      9.84
+    ],
+    [
+      20,
+      9.82
+    ],
+    [
+      21,
+      9.82
+    ],
+    [
+      22,
+      9.82
+    ],
+    [
+      23,
+      9.82
+    ],
+    [
+      24,
+      9.82
+    ],
+    [
+      25,
+      9.82
+    ],
+    [
+      26,
+      9.82
+    ],
+    [
+      27,
+      9.82
+    ],
+    [
+      28,
+      9.82
+    ],
+    [
+      29,
+      9.82
+    ],
+    [
+      30,
+      9.82
+    ]
+  ],
+  "flips": [
+    {
+      "step": 1,
+      "layer": "conv",
+      "index": 375,
+      "bit": 7,
+      "before": -1,
+      "after": 127,
+      "est_gain": 0.09057955846995736,
+      "attack_loss_before": 0.19567492604255676,
+      "attack_loss_after": 0.2675067186355591,
+      "acc": 89.6
+    },
+    {
+      "step": 2,
+      "layer": "layers.1.c1",
+      "index": 617,
+      "bit": 7,
+      "before": 4,
+      "after": -124,
+      "est_gain": 0.11357418681341658,
+      "attack_loss_before": 0.2675067186355591,
+      "attack_loss_after": 0.35567063093185425,
+      "acc": 89.18
+    },
+    {
+      "step": 3,
+      "layer": "layers.3.sc.0",
+      "index": 293,
+      "bit": 7,
+      "before": -27,
+      "after": 101,
+      "est_gain": 0.1305499866936266,
+      "attack_loss_before": 0.35567063093185425,
+      "attack_loss_after": 0.546223521232605,
+      "acc": 85.78
+    },
+    {
+      "step": 4,
+      "layer": "layers.3.sc.0",
+      "index": 297,
+      "bit": 7,
+      "before": -65,
+      "after": 63,
+      "est_gain": 0.2310168803968775,
+      "attack_loss_before": 0.546223521232605,
+      "attack_loss_after": 0.9650112986564636,
+      "acc": 77.32
+    },
+    {
+      "step": 5,
+      "layer": "layers.3.sc.0",
+      "index": 292,
+      "bit": 7,
+      "before": -27,
+      "after": 101,
+      "est_gain": 0.4791368266891247,
+      "attack_loss_before": 0.9650112986564636,
+      "attack_loss_after": 1.604612946510315,
+      "acc": 65.5
+    },
+    {
+      "step": 6,
+      "layer": "layers.3.sc.0",
+      "index": 303,
+      "bit": 7,
+      "before": -12,
+      "after": 116,
+      "est_gain": 0.7370934694054583,
+      "attack_loss_before": 1.604612946510315,
+      "attack_loss_after": 2.4533615112304688,
+      "acc": 53.46
+    },
+    {
+      "step": 7,
+      "layer": "layers.3.sc.0",
+      "index": 295,
+      "bit": 7,
+      "before": -85,
+      "after": 43,
+      "est_gain": 0.8982822606747902,
+      "attack_loss_before": 2.4533615112304688,
+      "attack_loss_after": 3.465902805328369,
+      "acc": 43.38
+    },
+    {
+      "step": 8,
+      "layer": "layers.3.sc.0",
+      "index": 294,
+      "bit": 7,
+      "before": -35,
+      "after": 93,
+      "est_gain": 1.06267891807137,
+      "attack_loss_before": 3.465902805328369,
+      "attack_loss_after": 4.5736284255981445,
+      "acc": 33.34
+    },
+    {
+      "step": 9,
+      "layer": "layers.3.sc.0",
+      "index": 302,
+      "bit": 7,
+      "before": -69,
+      "after": 59,
+      "est_gain": 1.1564955944556345,
+      "attack_loss_before": 4.5736284255981445,
+      "attack_loss_after": 5.758089065551758,
+      "acc": 26.12
+    },
+    {
+      "step": 10,
+      "layer": "layers.3.sc.0",
+      "index": 233,
+      "bit": 7,
+      "before": 88,
+      "after": -40,
+      "est_gain": 1.18762948285476,
+      "attack_loss_before": 5.758089065551758,
+      "attack_loss_after": 6.946852684020996,
+      "acc": 21.44
+    },
+    {
+      "step": 11,
+      "layer": "layers.3.sc.0",
+      "index": 301,
+      "bit": 7,
+      "before": -47,
+      "after": 81,
+      "est_gain": 1.1812154353547442,
+      "attack_loss_before": 6.946852684020996,
+      "attack_loss_after": 8.033683776855469,
+      "acc": 18.12
+    },
+    {
+      "step": 12,
+      "layer": "layers.4.c1",
+      "index": 3622,
+      "bit": 7,
+      "before": -3,
+      "after": 125,
+      "est_gain": 1.1498595114410648,
+      "attack_loss_before": 8.033683776855469,
+      "attack_loss_after": 9.380976676940918,
+      "acc": 14.42
+    },
+    {
+      "step": 13,
+      "layer": "layers.4.c1",
+      "index": 3623,
+      "bit": 7,
+      "before": -3,
+      "after": 125,
+      "est_gain": 1.284823821602373,
+      "attack_loss_before": 9.380976676940918,
+      "attack_loss_after": 10.379395484924316,
+      "acc": 12.66
+    },
+    {
+      "step": 14,
+      "layer": "layers.4.c2",
+      "index": 5300,
+      "bit": 7,
+      "before": -34,
+      "after": 94,
+      "est_gain": 2.015643217726165,
+      "attack_loss_before": 10.379395484924316,
+      "attack_loss_after": 11.892524719238281,
+      "acc": 11.28
+    },
+    {
+      "step": 15,
+      "layer": "fc",
+      "index": 415,
+      "bit": 7,
+      "before": -1,
+      "after": 127,
+      "est_gain": 1.6441823839673475,
+      "attack_loss_before": 11.892524719238281,
+      "attack_loss_after": 13.572530746459961,
+      "acc": 10.42
+    },
+    {
+      "step": 16,
+      "layer": "layers.6.sc.0",
+      "index": 658,
+      "bit": 7,
+      "before": 22,
+      "after": -106,
+      "est_gain": 1.5864699954944825,
+      "attack_loss_before": 13.572530746459961,
+      "attack_loss_after": 14.512478828430176,
+      "acc": 10.14
+    },
+    {
+      "step": 17,
+      "layer": "layers.6.sc.0",
+      "index": 82,
+      "bit": 7,
+      "before": 29,
+      "after": -99,
+      "est_gain": 1.5331965551089013,
+      "attack_loss_before": 14.512478828430176,
+      "attack_loss_after": 15.795978546142578,
+      "acc": 10.12
+    },
+    {
+      "step": 18,
+      "layer": "layers.7.c1",
+      "index": 23125,
+      "bit": 7,
+      "before": -1,
+      "after": 127,
+      "est_gain": 1.6951784325098913,
+      "attack_loss_before": 15.795978546142578,
+      "attack_loss_after": 18.17010498046875,
+      "acc": 9.92
+    },
+    {
+      "step": 19,
+      "layer": "layers.7.c1",
+      "index": 23124,
+      "bit": 7,
+      "before": -3,
+      "after": 125,
+      "est_gain": 2.8058569938782796,
+      "attack_loss_before": 18.17010498046875,
+      "attack_loss_after": 21.537689208984375,
+      "acc": 9.84
+    },
+    {
+      "step": 20,
+      "layer": "layers.7.c1",
+      "index": 23122,
+      "bit": 7,
+      "before": -14,
+      "after": 114,
+      "est_gain": 3.5847662380735983,
+      "attack_loss_before": 21.537689208984375,
+      "attack_loss_after": 25.409992218017578,
+      "acc": 9.82
+    },
+    {
+      "step": 21,
+      "layer": "layers.4.c2",
+      "index": 5299,
+      "bit": 7,
+      "before": -45,
+      "after": 83,
+      "est_gain": 4.052676541502251,
+      "attack_loss_before": 25.409992218017578,
+      "attack_loss_after": 28.979045867919922,
+      "acc": 9.82
+    },
+    {
+      "step": 22,
+      "layer": "layers.7.c1",
+      "index": 23121,
+      "bit": 7,
+      "before": -47,
+      "after": 81,
+      "est_gain": 4.635992218520812,
+      "attack_loss_before": 28.979045867919922,
+      "attack_loss_after": 33.67243957519531,
+      "acc": 9.82
+    },
+    {
+      "step": 23,
+      "layer": "layers.4.c2",
+      "index": 5296,
+      "bit": 7,
+      "before": -47,
+      "after": 81,
+      "est_gain": 3.9427050181277536,
+      "attack_loss_before": 33.67243957519531,
+      "attack_loss_after": 37.2110595703125,
+      "acc": 9.82
+    },
+    {
+      "step": 24,
+      "layer": "layers.4.c2",
+      "index": 7316,
+      "bit": 7,
+      "before": -17,
+      "after": 111,
+      "est_gain": 3.5966817033188363,
+      "attack_loss_before": 37.2110595703125,
+      "attack_loss_after": 40.825462341308594,
+      "acc": 9.82
+    },
+    {
+      "step": 25,
+      "layer": "layers.3.sc.0",
+      "index": 297,
+      "bit": 6,
+      "before": 63,
+      "after": 127,
+      "est_gain": 3.7786160182602657,
+      "attack_loss_before": 40.825462341308594,
+      "attack_loss_after": 44.43113708496094,
+      "acc": 9.82
+    },
+    {
+      "step": 26,
+      "layer": "fc",
+      "index": 402,
+      "bit": 6,
+      "before": 45,
+      "after": 109,
+      "est_gain": 3.8030384793663075,
+      "attack_loss_before": 44.43113708496094,
+      "attack_loss_after": 48.23417282104492,
+      "acc": 9.82
+    },
+    {
+      "step": 27,
+      "layer": "layers.6.c1",
+      "index": 14278,
+      "bit": 7,
+      "before": 6,
+      "after": -122,
+      "est_gain": 4.213859932931541,
+      "attack_loss_before": 48.23417282104492,
+      "attack_loss_after": 51.4930419921875,
+      "acc": 9.82
+    },
+    {
+      "step": 28,
+      "layer": "layers.7.c1",
+      "index": 23128,
+      "bit": 6,
+      "before": 10,
+      "after": 74,
+      "est_gain": 4.383892604616733,
+      "attack_loss_before": 51.4930419921875,
+      "attack_loss_after": 55.88496398925781,
+      "acc": 9.82
+    },
+    {
+      "step": 29,
+      "layer": "layers.4.c2",
+      "index": 5297,
+      "bit": 7,
+      "before": -11,
+      "after": 117,
+      "est_gain": 4.838263792471707,
+      "attack_loss_before": 55.88496398925781,
+      "attack_loss_after": 60.33790588378906,
+      "acc": 9.82
+    },
+    {
+      "step": 30,
+      "layer": "layers.5.c1",
+      "index": 166,
+      "bit": 7,
+      "before": -8,
+      "after": 120,
+      "est_gain": 5.51888951753881,
+      "attack_loss_before": 60.33790588378906,
+      "attack_loss_after": 66.39482116699219,
+      "acc": 9.82
+    }
+  ]
 }

@@ -91,10 +91,15 @@ def main(part="all"):
     json.dump(res, open("results.json", "w"), indent=2)
     if "random" not in res:
         print("no random results yet; run `python attack.py random` to draw the plot"); return
+    plot(res)
+    print(f"saved results.json and bitflip.png  [{time.time()-t0:.0f}s]")
+
+
+def plot(res):
+    """Draw bitflip.png from results.json contents only (no model needed)."""
+    acc0, total_bits, targeted = res["acc0"], res["total_bits"], res["targeted"]
     random_res = {int(k): v for k, v in res["random"].items()}
     rn = sorted(random_res)
-
-    # ---------------- plot ----------------
     c_rnd, c_tgt, ink, muted = "#2a78d6", "#eb6834", "#2b2a27", "#8a8980"
     fig, ax = plt.subplots(figsize=(7.5, 4.4))
     for s in ("top", "right"): ax.spines[s].set_visible(False)
@@ -103,22 +108,23 @@ def main(part="all"):
     ax.fill_between(xr, [acc0] + [random_res[n]["min"] for n in rn],
                     [acc0] + [random_res[n]["max"] for n in rn], color=c_rnd, alpha=0.15, lw=0)
     ax.plot(xr, [acc0] + [random_res[n]["mean"] for n in rn], "o-", color=c_rnd, lw=2, ms=5,
-            label=f"Random bit flips (mean, min–max of {TRIALS})")
+            label=f"Random bit flips (mean, min–max of {len(random_res[rn[0]]['trials'])})")
     ax.plot([s for s, _ in targeted], [a for _, a in targeted], "^-", color=c_tgt, lw=2, ms=5,
             label="Targeted bit search")
     ax.set_xscale("symlog", linthresh=1)
     ax.set_xlabel("Number of flipped bits (log scale)"); ax.set_ylabel("Test accuracy (%)")
     ax.set_ylim(0, 100)
-    ax.axhline(10, ls="--", lw=1, c=muted); ax.text(1.1, 11.5, "random guess (10%)", color=muted, fontsize=8)
+    ax.axhline(10, ls="--", lw=1, c=muted); ax.text(300, 11.5, "random guess (10%)", color=muted, fontsize=8)
     ax.annotate("Random", (rn[-1], random_res[rn[-1]]["mean"]), xytext=(-4, 10),
                 textcoords="offset points", ha="right", fontsize=9, color=ink)
     ax.annotate("Targeted", (targeted[-1][0], targeted[-1][1]), xytext=(6, 6),
                 textcoords="offset points", fontsize=9, color=ink)
     ax.set_title(f"ResNet-20 (int8, {total_bits:,} weight bits) on CIFAR-10", loc="left", fontsize=11)
-    ax.legend(frameon=False, fontsize=8, loc="lower left", bbox_to_anchor=(0.0, 0.18))
+    ax.legend(frameon=False, fontsize=8, loc="center", bbox_to_anchor=(0.58, 0.55))
     fig.tight_layout(); fig.savefig("bitflip.png", dpi=150)
-    print(f"saved results.json and bitflip.png  [{time.time()-t0:.0f}s]")
 
 
 if __name__ == "__main__":   # required on Windows: DataLoader workers re-import this file
-    main(sys.argv[1] if len(sys.argv) > 1 else "all")
+    part = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if part == "plot": plot(json.load(open("results.json"))); print("saved bitflip.png")
+    else: main(part)

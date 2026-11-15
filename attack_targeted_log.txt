@@ -1,0 +1,32 @@
+float32 accuracy (10k): 90.70%   int8 accuracy (eval 5k): 90.98%   weight bits: 2,167,168
+targeted step  1: conv[375] bit 7 (  -1 ->  127)  attack loss 0.196 -> 0.268  test acc 89.60%
+targeted step  2: layers.1.c1[617] bit 7 (   4 -> -124)  attack loss 0.268 -> 0.356  test acc 89.18%
+targeted step  3: layers.3.sc.0[293] bit 7 ( -27 ->  101)  attack loss 0.356 -> 0.546  test acc 85.78%
+targeted step  4: layers.3.sc.0[297] bit 7 ( -65 ->   63)  attack loss 0.546 -> 0.965  test acc 77.32%
+targeted step  5: layers.3.sc.0[292] bit 7 ( -27 ->  101)  attack loss 0.965 -> 1.605  test acc 65.50%
+targeted step  6: layers.3.sc.0[303] bit 7 ( -12 ->  116)  attack loss 1.605 -> 2.453  test acc 53.46%
+targeted step  7: layers.3.sc.0[295] bit 7 ( -85 ->   43)  attack loss 2.453 -> 3.466  test acc 43.38%
+targeted step  8: layers.3.sc.0[294] bit 7 ( -35 ->   93)  attack loss 3.466 -> 4.574  test acc 33.34%
+targeted step  9: layers.3.sc.0[302] bit 7 ( -69 ->   59)  attack loss 4.574 -> 5.758  test acc 26.12%
+targeted step 10: layers.3.sc.0[233] bit 7 (  88 ->  -40)  attack loss 5.758 -> 6.947  test acc 21.44%
+targeted step 11: layers.3.sc.0[301] bit 7 ( -47 ->   81)  attack loss 6.947 -> 8.034  test acc 18.12%
+targeted step 12: layers.4.c1[3622] bit 7 (  -3 ->  125)  attack loss 8.034 -> 9.381  test acc 14.42%
+targeted step 13: layers.4.c1[3623] bit 7 (  -3 ->  125)  attack loss 9.381 -> 10.379  test acc 12.66%
+targeted step 14: layers.4.c2[5300] bit 7 ( -34 ->   94)  attack loss 10.379 -> 11.893  test acc 11.28%
+targeted step 15: fc[415] bit 7 (  -1 ->  127)  attack loss 11.893 -> 13.573  test acc 10.42%
+targeted step 16: layers.6.sc.0[658] bit 7 (  22 -> -106)  attack loss 13.573 -> 14.512  test acc 10.14%
+targeted step 17: layers.6.sc.0[82] bit 7 (  29 ->  -99)  attack loss 14.512 -> 15.796  test acc 10.12%
+targeted step 18: layers.7.c1[23125] bit 7 (  -1 ->  127)  attack loss 15.796 -> 18.170  test acc 9.92%
+targeted step 19: layers.7.c1[23124] bit 7 (  -3 ->  125)  attack loss 18.170 -> 21.538  test acc 9.84%
+targeted step 20: layers.7.c1[23122] bit 7 ( -14 ->  114)  attack loss 21.538 -> 25.410  test acc 9.82%
+targeted step 21: layers.4.c2[5299] bit 7 ( -45 ->   83)  attack loss 25.410 -> 28.979  test acc 9.82%
+targeted step 22: layers.7.c1[23121] bit 7 ( -47 ->   81)  attack loss 28.979 -> 33.672  test acc 9.82%
+targeted step 23: layers.4.c2[5296] bit 7 ( -47 ->   81)  attack loss 33.672 -> 37.211  test acc 9.82%
+targeted step 24: layers.4.c2[7316] bit 7 ( -17 ->  111)  attack loss 37.211 -> 40.825  test acc 9.82%
+targeted step 25: layers.3.sc.0[297] bit 6 (  63 ->  127)  attack loss 40.825 -> 44.431  test acc 9.82%
+targeted step 26: fc[402] bit 6 (  45 ->  109)  attack loss 44.431 -> 48.234  test acc 9.82%
+targeted step 27: layers.6.c1[14278] bit 7 (   6 -> -122)  attack loss 48.234 -> 51.493  test acc 9.82%
+targeted step 28: layers.7.c1[23128] bit 6 (  10 ->   74)  attack loss 51.493 -> 55.885  test acc 9.82%
+targeted step 29: layers.4.c2[5297] bit 7 ( -11 ->  117)  attack loss 55.885 -> 60.338  test acc 9.82%
+targeted step 30: layers.5.c1[166] bit 7 (  -8 ->  120)  attack loss 60.338 -> 66.395  test acc 9.82%
+saved results.json and bitflip.png  [259s]
