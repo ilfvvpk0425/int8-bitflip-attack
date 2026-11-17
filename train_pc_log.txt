@@ -1,0 +1,41 @@
+epoch  1/40  train loss 1.702  penalty 0.033  (17s)
+epoch  2/40  train loss 1.208  penalty 0.035  (33s)
+epoch  3/40  train loss 0.944  penalty 0.038  (48s)
+epoch  4/40  train loss 0.804  penalty 0.043  (64s)
+epoch  5/40  train loss 0.712  penalty 0.048  (87s)  test acc 63.97%
+epoch  6/40  train loss 0.653  penalty 0.053  (112s)
+epoch  7/40  train loss 0.609  penalty 0.057  (130s)
+epoch  8/40  train loss 0.578  penalty 0.060  (149s)
+epoch  9/40  train loss 0.540  penalty 0.061  (165s)
+epoch 10/40  train loss 0.520  penalty 0.063  (180s)  test acc 66.17%
+epoch 11/40  train loss 0.504  penalty 0.064  (222s)
+epoch 12/40  train loss 0.487  penalty 0.065  (255s)
+epoch 13/40  train loss 0.473  penalty 0.065  (288s)
+epoch 14/40  train loss 0.459  penalty 0.065  (320s)
+epoch 15/40  train loss 0.452  penalty 0.065  (352s)  test acc 76.75%
+epoch 16/40  train loss 0.439  penalty 0.065  (392s)
+epoch 17/40  train loss 0.431  penalty 0.065  (425s)
+epoch 18/40  train loss 0.420  penalty 0.065  (458s)
+epoch 19/40  train loss 0.412  penalty 0.064  (490s)
+epoch 20/40  train loss 0.405  penalty 0.064  (522s)  test acc 79.48%
+epoch 21/40  train loss 0.397  penalty 0.064  (562s)
+epoch 22/40  train loss 0.394  penalty 0.064  (595s)
+epoch 23/40  train loss 0.384  penalty 0.063  (627s)
+epoch 24/40  train loss 0.374  penalty 0.062  (660s)
+epoch 25/40  train loss 0.367  penalty 0.061  (676s)  test acc 82.35%
+epoch 26/40  train loss 0.348  penalty 0.060  (699s)
+epoch 27/40  train loss 0.348  penalty 0.060  (715s)
+epoch 28/40  train loss 0.337  penalty 0.059  (735s)
+epoch 29/40  train loss 0.324  penalty 0.057  (751s)
+epoch 30/40  train loss 0.306  penalty 0.056  (767s)  test acc 86.04%
+epoch 31/40  train loss 0.295  penalty 0.054  (790s)
+epoch 32/40  train loss 0.276  penalty 0.053  (806s)
+epoch 33/40  train loss 0.257  penalty 0.051  (822s)
+epoch 34/40  train loss 0.235  penalty 0.049  (838s)
+epoch 35/40  train loss 0.215  penalty 0.048  (853s)  test acc 88.45%
+epoch 36/40  train loss 0.191  penalty 0.046  (876s)
+epoch 37/40  train loss 0.169  penalty 0.045  (892s)
+epoch 38/40  train loss 0.150  penalty 0.044  (907s)
+epoch 39/40  train loss 0.138  penalty 0.044  (923s)
+epoch 40/40  train loss 0.130  penalty 0.044  (939s)  test acc 90.88%
+saved resnet20_pc.pt
