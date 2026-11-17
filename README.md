@@ -1,5 +1,7 @@
 # int8 ResNet-20 비트 플립 공격 실험
 
+> 방어 실험 결과는 [DEFENSE.md](DEFENSE.md)에 있다.
+
 CIFAR-10으로 학습한 ResNet-20의 가중치를 int8로 양자화한 뒤, 메모리의 가중치 비트를 **무작위로** 뒤집을 때와 **골라서** 뒤집을 때 정확도가 얼마나 떨어지는지 비교했다. 골라서 뒤집는 방식은 Rakin et al., *Bit-Flip Attack: Crushing Neural Network with Progressive Bit Search* (ICCV 2019)의 Progressive Bit Search를 단순화한 것이다.
 
 ![결과 그래프](bitflip.png)
@@ -98,7 +100,12 @@ CIFAR-10으로 학습한 ResNet-20의 가중치를 int8로 양자화한 뒤, 메
 - **값 범위·활성값 제한**: 공격 이후 특정 채널의 활성값이 폭주한다. 그러니 추론 시 활성값을 학습 때 관찰한 범위로 clamp하면 피해가 줄어들 수 있다.
 - **학습 단계 방어**: 이진화나 piecewise clustering처럼 가중치 분포를 바꾸는 방법(He et al., CVPR 2020)으로, 같은 정확도 하락에 필요한 비트 수를 늘릴 수 있다고 알려져 있다.
 
-이 방어책들의 효과는 이번 실험에서 측정하지 않았다.
+이 방어책들의 효과는 이후 따로 측정했다. **[DEFENSE.md](DEFENSE.md)** 에 정리했다.
+
+- 부호 비트 보호는 필요한 플립 수를 2.6배로 늘렸다.
+- clustering 학습은 정확도를 5%p 내주고 2.1배로 늘렸다.
+- 활성값 clamp는 효과가 없었다.
+- 그룹 패리티는 그룹을 어떻게 나누느냐에 따라 탐지에 실패하기도 했다.
 
 ## 재현 방법
 
@@ -124,3 +131,4 @@ python attack.py plot        # results.json만으로 그래프 다시 그리기
 | `attack.py` | 무작위·표적 비트 플립 실험과 그래프 |
 | `results.json` | 모든 숫자 결과 (무작위 시행별 정확도, 표적 플립 30개 기록) |
 | `train_log.txt`, `attack_*_log.txt` | 실행 로그 |
+| `DEFENSE.md`, `defense*.py` | 방어 벤치마크 (별도 문서) |
