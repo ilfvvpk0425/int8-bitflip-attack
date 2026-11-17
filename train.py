@@ -26,8 +26,9 @@ def cluster_penalty(model):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cluster", type=float, default=0.0, help="clustering penalty weight (0 = off)")
+    ap.add_argument("--out", help="checkpoint name (default resnet20.pt / resnet20_pc.pt)")
     args = ap.parse_args()
-    out = "resnet20_pc.pt" if args.cluster else "resnet20.pt"
+    out = args.out or ("resnet20_pc.pt" if args.cluster else "resnet20.pt")
 
     torch.manual_seed(0)
     model = ResNet20().to(DEV)

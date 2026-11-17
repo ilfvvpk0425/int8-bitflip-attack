@@ -4,11 +4,12 @@ from statistics import median
 
 INK, MUTED, GRID, DOT = "#2b2a27", "#8a8980", "#e6e5e0", "#2a78d6"
 LABELS = {"base": "No defense", "sign": "Sign bit protected", "clamp": "Activation clamp",
-          "pc": "Clustering-trained", "parity-adapt": "Parity, adaptive\n(bits 0-5 only)"}
-REC = [("raw", "No recovery"), ("contiguous-zero", "Contiguous groups,\nzero group"),
-       ("contiguous-reload", "Contiguous groups,\nreload group"),
-       ("interleaved-zero", "Interleaved groups,\nzero group"),
-       ("interleaved-reload", "Interleaved groups,\nreload group")]
+          "pc": "Clustering-trained\n(lambda 5e-4)", "pc-strong": "Clustering-trained\n(lambda 5e-3, -5.2 pts clean)", "parity-adapt": "Parity, adaptive\n(bits 0-5 only)"}
+REC = [("raw", "No recovery"),
+       ("contiguous/zero", "Contiguous, zero group"), ("contiguous/reload", "Contiguous, reload group"),
+       ("interleaved/zero", "Interleaved, zero group"), ("interleaved/reload", "Interleaved, reload group"),
+       ("interleaved-min64/zero", "Interleaved, >=64 groups\nper layer, zero"),
+       ("interleaved-min64/reload", "Interleaved, >=64 groups\nper layer, reload")]
 
 
 def style(ax):
@@ -20,7 +21,7 @@ def style(ax):
 def plot(res, out="defense.png"):
     from defense import MAX_STEPS, STOP_ACC
     cfgs = [c for c in LABELS if c in res]
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4.2), gridspec_kw=dict(width_ratios=[1, 1]))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.5, 4.8), gridspec_kw=dict(width_ratios=[1, 1]))
 
     # left: flips needed to collapse, one dot per attack seed
     style(a1)
@@ -36,7 +37,7 @@ def plot(res, out="defense.png"):
         if done and not cens: a1.plot([median(done)] * 2, [ys - 0.25, ys + 0.25], color=INK, lw=1.5, zorder=4)
         a1.text(1.02, ys, txt, transform=a1.get_yaxis_transform(), va="center", fontsize=8, color=MUTED)
     a1.set_yticks(range(len(cfgs))); a1.set_yticklabels([LABELS[c] for c in reversed(cfgs)], fontsize=9)
-    a1.set_xscale("log"); a1.set_xlim(5, MAX_STEPS * 1.3)
+    a1.set_xscale("log"); a1.set_xlim(5, max(r["to_stop"] or MAX_STEPS for c in cfgs for r in res[c]) * 1.6)
     a1.set_xlabel(f"Bit flips until accuracy <= {STOP_ACC:g}% (log scale, 5 attack seeds)")
     a1.set_title("Flips the attacker needs", loc="left", fontsize=11, color=INK)
 
@@ -45,16 +46,18 @@ def plot(res, out="defense.png"):
     base = res["base"]
     for i, (k, lab) in enumerate(REC):
         ys = len(REC) - 1 - i
-        vals = [r["curve"][-1] if k == "raw" else r["recovered"][k][-1] for r in base]
+        if k == "raw": vals = [r["curve"][-1] for r in base]
+        else:
+            v, mode = k.split("/"); vals = [r[mode] for r in res["parity-replay"][v]["runs"]]
         a2.scatter(vals, [ys] * len(vals), s=36, color=DOT, edgecolor="white", lw=1.5, zorder=3)
         a2.plot([median(vals)] * 2, [ys - 0.25, ys + 0.25], color=INK, lw=1.5, zorder=4)
         a2.text(1.02, ys, f"median {median(vals):.1f}%", transform=a2.get_yaxis_transform(),
                 va="center", fontsize=8, color=MUTED)
     a2.axvline(base[0]["acc0"], ls="--", lw=1, color=MUTED)
-    a2.text(base[0]["acc0"], len(REC) - 0.45, "clean", ha="right", fontsize=8, color=MUTED)
+    a2.text(base[0]["acc0"] - 1, -0.6, "clean", ha="right", fontsize=8, color=MUTED)
     a2.set_yticks(range(len(REC))); a2.set_yticklabels([l for _, l in reversed(REC)], fontsize=9)
     a2.set_xlim(0, 100); a2.set_xlabel("Test accuracy (%) after the undefended attack finished")
-    a2.set_title("Parity check on bits 6-7 (64 weights/group)", loc="left", fontsize=11, color=INK)
+    a2.set_title("Parity on bits 6-7 vs. the undefended attack", loc="left", fontsize=11, color=INK)
 
     fig.tight_layout(w_pad=6); fig.savefig(out, dpi=150)
     print(f"saved {out}")

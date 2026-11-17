@@ -1,0 +1,26 @@
+== pc-strong
+  [pc-strong] seed 0: clean acc 85.80%
+    step  10  layers.3.sc.0[443] bit 7  attack loss 3.698  acc 37.90%
+    step  20  layers.3.sc.0[452] bit 7  attack loss 11.672  acc 10.86%
+  [pc-strong] seed 0: 20 flips to <= 11.0%  (9s)
+  [pc-strong] seed 1: clean acc 85.80%
+    step  10  layers.1.c2[1665] bit 7  attack loss 2.169  acc 50.78%
+    step  20  layers.3.sc.0[379] bit 6  attack loss 4.887  acc 30.60%
+    step  28  layers.0.c2[1873] bit 7  attack loss 12.150  acc 10.48%
+  [pc-strong] seed 1: 28 flips to <= 11.0%  (12s)
+  [pc-strong] seed 2: clean acc 85.80%
+    step  10  layers.3.sc.0[244] bit 7  attack loss 4.430  acc 33.82%
+    step  20  layers.5.c1[7159] bit 7  attack loss 10.330  acc 16.88%
+    step  26  layers.4.c2[1194] bit 7  attack loss 16.796  acc 10.66%
+  [pc-strong] seed 2: 26 flips to <= 11.0%  (12s)
+  [pc-strong] seed 3: clean acc 85.80%
+    step  10  layers.1.c1[1196] bit 7  attack loss 2.387  acc 48.20%
+    step  20  layers.3.sc.0[410] bit 7  attack loss 10.585  acc 11.98%
+    step  23  layers.0.c2[602] bit 7  attack loss 14.745  acc 10.82%
+  [pc-strong] seed 3: 23 flips to <= 11.0%  (10s)
+  [pc-strong] seed 4: clean acc 85.80%
+    step  10  layers.1.c1[1189] bit 7  attack loss 1.456  acc 60.70%
+    step  20  layers.0.c1[761] bit 7  attack loss 7.364  acc 16.50%
+    step  25  layers.0.c2[602] bit 7  attack loss 12.205  acc 10.68%
+  [pc-strong] seed 4: 25 flips to <= 11.0%  (11s)
+saved defense_results.json

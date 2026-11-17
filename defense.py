@@ -10,12 +10,14 @@ Defenses (each is a config):
   base          no defense
   sign          sign bit (bit 7) cannot be flipped (e.g. stored with ECC/replicas)
   clamp         activations clamped per channel to the max seen on training data
-  pc            model trained with the piece-wise clustering penalty (train.py --cluster)
+  pc            model trained with the piece-wise clustering penalty (train.py --cluster 5e-4)
+  pc-strong     the same with a 10x stronger penalty (--cluster 5e-3)
   parity        group parity on bits 7 and 6, flagged groups zeroed. The attacker
                 ignores it (same search as base); we report accuracy after recovery.
   parity-adapt  attacker knows parity covers bits 6-7 and only flips bits 0-5
 
     python defense.py run base sign clamp pc parity-adapt   (parity is measured inside base)
+    python defense.py replay     (other parity groupings, re-using the base flips)
     python defense.py plot
 """
 import json, os, sys, time, zlib
@@ -91,15 +93,19 @@ class Parity:
     """Two parity bits (over bit 7 and over bit 6) per group of GROUP weights.
     contiguous: group = index // GROUP.  interleaved: a secret per-layer permutation
     first, so neighbouring weights (one output channel) land in different groups."""
-    def __init__(self, net, interleaved, seed=1234):
+    def __init__(self, net, interleaved, seed=1234, min_groups=0):
+        """min_groups > 0: shrink the group size of small layers so every layer has at
+        least that many groups (the attack piles into small layers like fc)."""
         self.groups = {}
         g = torch.Generator(device="cpu").manual_seed(seed)
         for name in net.names:
             n = net.q[name][0].numel()
+            size = max(1, min(GROUP, n // min_groups)) if min_groups else GROUP
             pos = torch.randperm(n, generator=g) if interleaved else torch.arange(n)
-            self.groups[name] = (pos // GROUP).to(DEV)
+            self.groups[name] = (pos // size).to(DEV)
         self.sig = self.signature(net.q)
         self.clean = {k: v.clone() for k, (v, _) in net.q.items()}
+        self.bits = sum(2 * (int(self.groups[k].max()) + 1) for k in net.names)
 
     def signature(self, q):
         out = {}
@@ -192,6 +198,7 @@ CONFIGS = {
     "sign":        dict(ckpt="resnet20.pt",    bits=range(7), clamp=False, parity=False),
     "clamp":       dict(ckpt="resnet20.pt",    bits=range(8), clamp=True,  parity=False),
     "pc":          dict(ckpt="resnet20_pc.pt", bits=range(8), clamp=False, parity=False),
+    "pc-strong":   dict(ckpt="resnet20_pc5e-3.pt", bits=range(8), clamp=False, parity=False),
     "parity-adapt": dict(ckpt="resnet20.pt",   bits=range(6), clamp=False, parity=False),
 }
 
@@ -245,8 +252,30 @@ def main(cfgs):
     print(f"saved {OUT}")
 
 
+def replay():
+    """The parity attacker ignores the check, so its flips do not depend on the
+    grouping: re-apply the recorded 'base' flips and try other groupings offline."""
+    res = json.load(open(OUT))
+    x, y = cifar(False); xe, ye = x[:EVAL_N], y[:EVAL_N]
+    variants = {"contiguous": dict(interleaved=False), "interleaved": dict(interleaved=True),
+                "interleaved-min64": dict(interleaved=True, min_groups=64)}
+    out = {}
+    for vname, kw in variants.items():
+        rows = []
+        for run in res["base"]:
+            net = Net("resnet20.pt"); par = Parity(net, **kw)
+            for f in run["flips"]: net.flip(f["layer"], f["index"], f["bit"])
+            fl, qs = par.recover(net)
+            rows.append(dict(flagged=fl, **{m: acc_with(net, q2, xe, ye) for m, q2 in qs.items()}))
+        out[vname] = dict(parity_bits=par.bits, runs=rows)
+        print(vname, f"{par.bits} parity bits", [(r["flagged"], round(r["zero"], 2), round(r["reload"], 2)) for r in rows])
+    res["parity-replay"] = out
+    json.dump(res, open(OUT, "w"), indent=1)
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "run": main(sys.argv[2:])
+    elif len(sys.argv) > 1 and sys.argv[1] == "replay": replay()
     elif len(sys.argv) > 1 and sys.argv[1] == "plot":
         from defense_plot import plot; plot(json.load(open(OUT)))
     else: print(__doc__)

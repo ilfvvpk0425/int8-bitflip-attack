@@ -1,0 +1,121 @@
+== base
+  [base] seed 0: clean acc 90.98%
+    step  10  layers.6.sc.0[1920] bit 7  attack loss 9.777  acc 12.02%  contiguous: 4 groups, zero 12.32% reload 30.28%  interleaved: 10 groups, zero 54.78% reload 90.98%
+    step  12  layers.0.c1[332] bit 7  attack loss 13.931  acc 10.12%  contiguous: 6 groups, zero 11.02% reload 30.28%  interleaved: 12 groups, zero 49.20% reload 90.98%
+  [base] seed 0: 12 flips to <= 11.0%  (16s)
+  [base] seed 1: clean acc 90.98%
+    step  10  layers.3.sc.0[474] bit 7  attack loss 8.052  acc 14.44%  contiguous: 4 groups, zero 86.28% reload 88.02%  interleaved: 10 groups, zero 78.92% reload 90.98%
+    step  12  fc[0] bit 6  attack loss 11.210  acc 10.92%  contiguous: 6 groups, zero 76.48% reload 88.02%  interleaved: 12 groups, zero 65.60% reload 90.98%
+  [base] seed 1: 12 flips to <= 11.0%  (18s)
+  [base] seed 2: clean acc 90.98%
+    step  10  layers.1.c1[1477] bit 7  attack loss 2.060  acc 76.92%  contiguous: 2 groups, zero 79.40% reload 85.84%  interleaved: 6 groups, zero 70.48% reload 84.66%
+    step  19  layers.4.c1[520] bit 7  attack loss 17.608  acc 10.02%  contiguous: 5 groups, zero 70.96% reload 84.32%  interleaved: 9 groups, zero 40.98% reload 59.94%
+  [base] seed 2: 19 flips to <= 11.0%  (26s)
+  [base] seed 3: clean acc 90.98%
+    step  10  layers.1.c2[72] bit 7  attack loss 17.781  acc 12.28%  contiguous: 4 groups, zero 84.80% reload 90.98%  interleaved: 10 groups, zero 81.74% reload 90.98%
+    step  11  layers.1.c1[1195] bit 7  attack loss 24.060  acc 10.02%  contiguous: 3 groups, zero 69.58% reload 69.10%  interleaved: 9 groups, zero 75.92% reload 89.14%
+  [base] seed 3: 11 flips to <= 11.0%  (14s)
+  [base] seed 4: clean acc 90.98%
+    step  10  layers.0.c1[759] bit 7  attack loss 10.775  acc 12.78%  contiguous: 4 groups, zero 48.20% reload 46.58%  interleaved: 10 groups, zero 60.88% reload 90.98%
+    step  13  layers.5.c1[3939] bit 7  attack loss 17.191  acc 10.90%  contiguous: 5 groups, zero 42.18% reload 40.02%  interleaved: 13 groups, zero 57.84% reload 90.98%
+  [base] seed 4: 13 flips to <= 11.0%  (20s)
+== sign
+  [sign] seed 0: clean acc 90.98%
+    step  10  layers.3.sc.0[148] bit 6  attack loss 1.084  acc 76.90%
+    step  20  fc[433] bit 5  attack loss 4.414  acc 38.08%
+    step  30  layers.6.sc.0[1586] bit 6  attack loss 11.104  acc 13.80%
+    step  36  layers.0.c1[645] bit 6  attack loss 15.908  acc 10.80%
+  [sign] seed 0: 36 flips to <= 11.0%  (22s)
+  [sign] seed 1: clean acc 90.98%
+    step  10  layers.1.c1[474] bit 6  attack loss 1.687  acc 69.44%
+    step  20  layers.1.c1[1447] bit 6  attack loss 7.386  acc 23.72%
+    step  30  layers.6.sc.0[1206] bit 6  attack loss 18.315  acc 11.26%
+    step  31  layers.3.c2[2356] bit 6  attack loss 19.534  acc 10.98%
+  [sign] seed 1: 31 flips to <= 11.0%  (19s)
+  [sign] seed 2: clean acc 90.98%
+    step  10  layers.3.sc.0[132] bit 6  attack loss 1.187  acc 79.50%
+    step  20  layers.6.sc.0[1192] bit 6  attack loss 4.393  acc 39.02%
+    step  30  layers.7.c1[13588] bit 6  attack loss 13.107  acc 13.50%
+    step  36  layers.3.sc.0[405] bit 6  attack loss 22.736  acc 10.80%
+  [sign] seed 2: 36 flips to <= 11.0%  (24s)
+  [sign] seed 3: clean acc 90.98%
+    step  10  layers.1.c1[1436] bit 6  attack loss 1.891  acc 62.96%
+    step  20  layers.1.c1[1191] bit 6  attack loss 8.988  acc 19.14%
+    step  25  layers.1.c2[801] bit 6  attack loss 15.058  acc 10.38%
+  [sign] seed 3: 25 flips to <= 11.0%  (13s)
+  [sign] seed 4: clean acc 90.98%
+    step  10  layers.1.c1[331] bit 6  attack loss 1.664  acc 62.92%
+    step  20  layers.1.c1[296] bit 6  attack loss 6.954  acc 23.84%
+    step  30  layers.3.c2[6217] bit 6  attack loss 16.658  acc 10.96%
+  [sign] seed 4: 30 flips to <= 11.0%  (18s)
+== clamp
+  [clamp] seed 0: clean acc 90.98%
+    step  10  layers.6.sc.0[1920] bit 7  attack loss 9.776  acc 12.02%
+    step  12  layers.0.c1[332] bit 7  attack loss 13.913  acc 10.12%
+  [clamp] seed 0: 12 flips to <= 11.0%  (9s)
+  [clamp] seed 1: clean acc 90.98%
+    step  10  layers.3.sc.0[474] bit 7  attack loss 8.052  acc 14.44%
+    step  12  fc[0] bit 6  attack loss 11.210  acc 10.92%
+  [clamp] seed 1: 12 flips to <= 11.0%  (6s)
+  [clamp] seed 2: clean acc 90.98%
+    step  10  layers.1.c1[1477] bit 7  attack loss 2.060  acc 76.92%
+    step  19  layers.4.c1[520] bit 7  attack loss 17.605  acc 10.02%
+  [clamp] seed 2: 19 flips to <= 11.0%  (14s)
+  [clamp] seed 3: clean acc 90.98%
+    step  10  layers.1.c2[72] bit 7  attack loss 17.610  acc 12.28%
+    step  11  layers.1.c1[1195] bit 7  attack loss 23.477  acc 10.02%
+  [clamp] seed 3: 11 flips to <= 11.0%  (8s)
+  [clamp] seed 4: clean acc 90.98%
+    step  10  layers.0.c1[759] bit 7  attack loss 10.775  acc 12.80%
+    step  13  layers.5.c1[3939] bit 7  attack loss 17.189  acc 10.90%
+  [clamp] seed 4: 13 flips to <= 11.0%  (7s)
+== parity-adapt
+  [parity-adapt] seed 0: clean acc 90.98%
+    step  10  layers.0.c1[1622] bit 5  attack loss 0.510  acc 86.86%
+    step  20  conv[364] bit 5  attack loss 0.919  acc 76.14%
+    step  30  layers.1.c1[2140] bit 5  attack loss 2.089  acc 61.28%
+    step  40  layers.1.c1[2075] bit 5  attack loss 4.624  acc 41.84%
+    step  50  layers.0.c2[2263] bit 5  attack loss 9.632  acc 21.16%
+    step  60  layers.6.sc.0[93] bit 5  attack loss 14.720  acc 13.68%
+    step  70  layers.1.c2[1135] bit 5  attack loss 19.593  acc 11.24%
+    step  71  layers.3.sc.0[457] bit 5  attack loss 20.130  acc 11.00%
+  [parity-adapt] seed 0: 71 flips to <= 11.0%  (45s)
+  [parity-adapt] seed 1: clean acc 90.98%
+    step  10  layers.1.c1[1509] bit 5  attack loss 0.521  acc 86.08%
+    step  20  layers.0.c1[1191] bit 5  attack loss 1.384  acc 73.30%
+    step  30  layers.2.c1[1052] bit 5  attack loss 3.295  acc 44.78%
+    step  40  layers.2.c1[1131] bit 5  attack loss 5.719  acc 19.46%
+    step  50  layers.1.c1[659] bit 5  attack loss 8.446  acc 12.70%
+    step  59  layers.6.c1[7644] bit 5  attack loss 11.338  acc 10.98%
+  [parity-adapt] seed 1: 59 flips to <= 11.0%  (37s)
+  [parity-adapt] seed 2: clean acc 90.98%
+    step  10  layers.3.sc.0[160] bit 5  attack loss 0.675  acc 89.00%
+    step  20  conv[3] bit 5  attack loss 0.967  acc 84.62%
+    step  30  layers.1.c1[2157] bit 5  attack loss 1.925  acc 67.78%
+    step  40  layers.1.c1[2086] bit 5  attack loss 5.280  acc 40.80%
+    step  50  layers.1.c1[2151] bit 5  attack loss 10.268  acc 21.12%
+    step  60  layers.3.sc.0[102] bit 5  attack loss 14.325  acc 13.26%
+    step  70  layers.3.sc.0[473] bit 4  attack loss 18.201  acc 10.82%
+  [parity-adapt] seed 2: 70 flips to <= 11.0%  (41s)
+  [parity-adapt] seed 3: clean acc 90.98%
+    step  10  conv[120] bit 5  attack loss 0.394  acc 87.46%
+    step  20  layers.3.sc.0[196] bit 5  attack loss 1.369  acc 71.04%
+    step  30  layers.0.c1[1628] bit 5  attack loss 3.045  acc 54.28%
+    step  40  layers.1.c1[1911] bit 5  attack loss 5.817  acc 39.26%
+    step  50  fc[224] bit 5  attack loss 11.313  acc 24.68%
+    step  60  layers.5.c1[2702] bit 5  attack loss 17.426  acc 16.44%
+    step  70  layers.0.c1[2139] bit 5  attack loss 24.044  acc 12.70%
+    step  78  layers.0.c2[708] bit 5  attack loss 30.061  acc 11.00%
+  [parity-adapt] seed 3: 78 flips to <= 11.0%  (47s)
+  [parity-adapt] seed 4: clean acc 90.98%
+    step  10  layers.3.sc.0[61] bit 5  attack loss 0.454  acc 89.72%
+    step  20  conv[120] bit 5  attack loss 0.718  acc 84.78%
+    step  30  layers.3.sc.0[195] bit 5  attack loss 1.286  acc 73.80%
+    step  40  layers.0.c1[756] bit 5  attack loss 2.604  acc 53.50%
+    step  50  layers.0.c1[2053] bit 5  attack loss 5.485  acc 31.92%
+    step  60  fc[199] bit 5  attack loss 10.601  acc 19.68%
+    step  70  layers.0.c1[2056] bit 4  attack loss 16.076  acc 14.56%
+    step  80  layers.0.c1[2054] bit 4  attack loss 23.120  acc 12.02%
+    step  87  layers.0.c2[133] bit 5  attack loss 28.526  acc 10.94%
+  [parity-adapt] seed 4: 87 flips to <= 11.0%  (55s)
+saved defense_results.json
